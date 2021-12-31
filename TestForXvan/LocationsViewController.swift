@@ -69,35 +69,83 @@ class LocationsViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    let firstImageColumnStackView: UIStackView = {
+        let stackView = UIStackView()
+        return stackView
+    }()
+    
+    let locationImage1: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "image1")!)
+        return view
+    }()
+    
+    let locationImage2: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "image2")!)
+        return view
+    }()
+    
+    let locationImage3: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "image3")!)
+        return view
+    }()
+    
+    let locationImage4: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "image4")!)
+        return view
+    }()
+    
+    let locationImage5: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "image5")!)
+        return view
+    }()
+    
+    let locationImage6: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "image6")!)
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
         configureUI()
     }
     
     func configureUI() {
-        view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
         view.addSubview(logoView)
         
-        view.addSubview(containerView)
-        
-        containerView.addSubview(subContainerView)
-                
-        //MARK: locationLabel constraints
+        //MARK: logoView constraints
         logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 89).isActive = true
         logoView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         logoView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
         logoView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         logoView.widthAnchor.constraint(equalToConstant: 465).isActive = true
         
+        
+        //MARK: locationLabel constraints
         logoView.addSubview(locationLabel)
         locationLabel.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
         locationLabel.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
         
         
+        view.addSubview(containerView)
+        
+        containerView.addSubview(subContainerView)
+        
         //MARK: ConteinerView constraints
-        containerView.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 71).isActive = true
+        containerView.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 40).isActive = true
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
