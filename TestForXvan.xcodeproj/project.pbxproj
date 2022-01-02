@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		973054E93109D78E09FD45CA /* Pods_TestForXvan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CFEB132BE14FA66E68B27A /* Pods_TestForXvan.framework */; };
 		FAD70C04277E5F2B002FCD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70C03277E5F2B002FCD61 /* AppDelegate.swift */; };
 		FAD70C08277E5F2B002FCD61 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70C07277E5F2B002FCD61 /* LocationsViewController.swift */; };
 		FAD70C0D277E5F2D002FCD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD70C0C277E5F2D002FCD61 /* Assets.xcassets */; };
 		FAD70C10277E5F2D002FCD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD70C0E277E5F2D002FCD61 /* LaunchScreen.storyboard */; };
+		FAD70C3D2781C514002FCD61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAD70C3C2781C514002FCD61 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06CFEB132BE14FA66E68B27A /* Pods_TestForXvan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestForXvan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		137BAA8195FAC0DBC3F7C9E3 /* Pods-TestForXvan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestForXvan.release.xcconfig"; path = "Target Support Files/Pods-TestForXvan/Pods-TestForXvan.release.xcconfig"; sourceTree = "<group>"; };
+		D717551465E73D57FF282337 /* Pods-TestForXvan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestForXvan.debug.xcconfig"; path = "Target Support Files/Pods-TestForXvan/Pods-TestForXvan.debug.xcconfig"; sourceTree = "<group>"; };
 		FAD70C00277E5F2B002FCD61 /* TestForXvan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForXvan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD70C03277E5F2B002FCD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD70C07277E5F2B002FCD61 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		FAD70C0C277E5F2D002FCD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD70C0F277E5F2D002FCD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD70C11277E5F2D002FCD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAD70C3C2781C514002FCD61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				973054E93109D78E09FD45CA /* Pods_TestForXvan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D346048714ACDAFB3D7F5CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06CFEB132BE14FA66E68B27A /* Pods_TestForXvan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC031E94659487185511E475 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D717551465E73D57FF282337 /* Pods-TestForXvan.debug.xcconfig */,
+				137BAA8195FAC0DBC3F7C9E3 /* Pods-TestForXvan.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FAD70BF7277E5F2B002FCD61 = {
 			isa = PBXGroup;
 			children = (
 				FAD70C02277E5F2B002FCD61 /* TestForXvan */,
 				FAD70C01277E5F2B002FCD61 /* Products */,
+				BC031E94659487185511E475 /* Pods */,
+				7D346048714ACDAFB3D7F5CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +82,7 @@
 				FAD70C07277E5F2B002FCD61 /* LocationsViewController.swift */,
 				FAD70C0C277E5F2D002FCD61 /* Assets.xcassets */,
 				FAD70C0E277E5F2D002FCD61 /* LaunchScreen.storyboard */,
+				FAD70C3C2781C514002FCD61 /* GoogleService-Info.plist */,
 				FAD70C11277E5F2D002FCD61 /* Info.plist */,
 			);
 			path = TestForXvan;
@@ -68,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAD70C14277E5F2D002FCD61 /* Build configuration list for PBXNativeTarget "TestForXvan" */;
 			buildPhases = (
+				F6AE57D02E0FEB020DF781D8 /* [CP] Check Pods Manifest.lock */,
 				FAD70BFC277E5F2B002FCD61 /* Sources */,
 				FAD70BFD277E5F2B002FCD61 /* Frameworks */,
 				FAD70BFE277E5F2B002FCD61 /* Resources */,
+				6F72A16FB07C125A8BFAA9FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -121,10 +150,53 @@
 			files = (
 				FAD70C10277E5F2D002FCD61 /* LaunchScreen.storyboard in Resources */,
 				FAD70C0D277E5F2D002FCD61 /* Assets.xcassets in Resources */,
+				FAD70C3D2781C514002FCD61 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6F72A16FB07C125A8BFAA9FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestForXvan/Pods-TestForXvan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestForXvan/Pods-TestForXvan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestForXvan/Pods-TestForXvan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6AE57D02E0FEB020DF781D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestForXvan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAD70BFC277E5F2B002FCD61 /* Sources */ = {
@@ -268,6 +340,7 @@
 		};
 		FAD70C15277E5F2D002FCD61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D717551465E73D57FF282337 /* Pods-TestForXvan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,6 +368,7 @@
 		};
 		FAD70C16277E5F2D002FCD61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 137BAA8195FAC0DBC3F7C9E3 /* Pods-TestForXvan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
