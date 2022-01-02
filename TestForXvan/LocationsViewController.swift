@@ -10,7 +10,7 @@ import FirebaseStorage
 
 class LocationsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-   
+    
     private let storage = Storage.storage().reference()
     
     let locationLabel: UILabel = {
@@ -35,18 +35,20 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         view.layer.cornerRadius = 33
         view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         view.layer.shadowOffset = CGSize(width: 0.0, height: 10.0)
-        view.layer.shadowOpacity = 0.2
-        view.layer.shadowRadius = 0.0
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowRadius = 1
         view.layer.masksToBounds = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
+    
+    
     let subContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.93, green: 0.95, blue: 0.96, alpha: 1.0))
         view.layer.cornerRadius = 23
-
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -76,21 +78,25 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+  
     let image1: UIImageView = {
         let image = UIImageView(image: UIImage(named: "image1"))
+        image.isUserInteractionEnabled = true
+        
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let image2: UIImageView = {
         let image = UIImageView(image: UIImage(named: "image2"))
+        image.isUserInteractionEnabled = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let image3: UIImageView = {
         let image = UIImageView(image: UIImage(named: "image3"))
+        image.isUserInteractionEnabled = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -98,18 +104,21 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
     let image4: UIImageView = {
         let image = UIImageView(image: UIImage(named: "image4"))
         image.image = UIImage(named: "image4")
+        image.isUserInteractionEnabled = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let image5: UIImageView = {
         let image = UIImageView(image: UIImage(named: "image5"))
+        image.isUserInteractionEnabled = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let image6: UIImageView = {
         let image = UIImageView(image: UIImage(named: "image6"))
+        image.isUserInteractionEnabled = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -119,12 +128,11 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
         configureUI()
         addPictureButton.addTarget(self, action: #selector(addPictureAction), for: .touchUpInside)
-        
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
     }
+    
+    @objc func didTapImageView(_ sender: UITapGestureRecognizer) {
+
+        }
     
     @objc func addPictureAction() {
         let picker = UIImagePickerController()
@@ -157,7 +165,7 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
                 let urlString = url.absoluteString
                 print("Downloaded url: \(urlString)")
                 UserDefaults.standard.set(urlString, forKey: "url")
-
+                
             }
             
         })
@@ -186,7 +194,7 @@ private extension LocationsViewController {
         logoView.addSubview(locationLabel)
         locationLabel.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
         locationLabel.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
-    
+        
         view.addSubview(containerView)
         
         containerView.addSubview(subContainerView)
@@ -239,19 +247,19 @@ private extension LocationsViewController {
         image3.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 20).isActive = true
         image3.widthAnchor.constraint(equalToConstant: 150).isActive = true
         image3.heightAnchor.constraint(equalToConstant: 150).isActive = true
-
+        
         subContainerView.addSubview(image4)
         image4.topAnchor.constraint(equalTo: image2.bottomAnchor, constant: 16).isActive = true
         image4.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
         image4.widthAnchor.constraint(equalToConstant: 150).isActive = true
         image4.heightAnchor.constraint(equalToConstant: 150).isActive = true
-
+        
         subContainerView.addSubview(image5)
         image5.topAnchor.constraint(equalTo: image3.bottomAnchor, constant: 16).isActive = true
         image5.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 20).isActive = true
         image5.widthAnchor.constraint(equalToConstant: 150).isActive = true
         image5.heightAnchor.constraint(equalToConstant: 150).isActive = true
-
+        
         subContainerView.addSubview(image6)
         image6.topAnchor.constraint(equalTo: image4.bottomAnchor, constant: 16).isActive = true
         image6.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
