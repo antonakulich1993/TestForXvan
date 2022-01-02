@@ -17,10 +17,10 @@ class LocationsViewController: UIViewController {
         return label
     }()
     
-    let logoView: UIView = {
-        let view = UIView()
+    let logoView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "XvanLogoImage")
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "XvanLogoImage")!)
         return view
     }()
     
@@ -48,7 +48,6 @@ class LocationsViewController: UIViewController {
         stackView.backgroundColor = UIColor(cgColor: CGColor(red: 0.93, green: 0.95, blue: 0.96, alpha: 1.0))
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        stackView.spacing = 13
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -70,53 +69,48 @@ class LocationsViewController: UIViewController {
         return button
     }()
     
-    let firstImageColumnStackView: UIStackView = {
-        let stackView = UIStackView()
-        return stackView
+    let image1: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "image1")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
-    let locationImage1: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "image1")!)
-        return view
+    let image2: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "image2")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
-    let locationImage2: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "image2")!)
-        return view
+    let image3: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "image3")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
-    let locationImage3: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "image3")!)
-        return view
+    let image4: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "image4")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
-    let locationImage4: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "image4")!)
-        return view
+    let image5: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "image5")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
-    let locationImage5: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "image5")!)
-        return view
+    let image6: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "image6")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
-    
-    let locationImage6: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "image6")!)
-        return view
-    }()
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
@@ -145,37 +139,77 @@ class LocationsViewController: UIViewController {
         containerView.addSubview(subContainerView)
         
         //MARK: ConteinerView constraints
-        containerView.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 40).isActive = true
+        containerView.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30).isActive = true
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 615).isActive = true
         
         //MARK: subContainerView constraints
-        subContainerView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32).isActive = true
-        subContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 30).isActive = true
-        subContainerView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -30).isActive = true
-        subContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -33).isActive = true
+        subContainerView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20).isActive = true
+        subContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16).isActive = true
+        subContainerView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16).isActive = true
+        subContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20).isActive = true
         
         //MARK: stackView constraints
         
         subContainerView.addSubview(stackView)
         
-        stackView.topAnchor.constraint(equalTo: subContainerView.topAnchor, constant: 27).isActive = true
-        stackView.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 18).isActive = true
-        stackView.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
+        stackView.topAnchor.constraint(equalTo: subContainerView.topAnchor, constant: 20).isActive = true
+        stackView.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 16).isActive = true
+        stackView.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -16).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         //MARK: locationField constraints
         stackView.addSubview(locationField)
         locationField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 5).isActive = true
+        locationField.widthAnchor.constraint(equalToConstant: 250).isActive = true
         
         
         //MARK: addPictureButton constraints
         stackView.addSubview(addPictureButton)
         addPictureButton.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -5).isActive = true
+        
+        //MARK: AllImages Constraints
+        subContainerView.addSubview(image1)
+        image1.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15).isActive = true
+        image1.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 16).isActive = true
+        image1.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        image1.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        subContainerView.addSubview(image2)
+        image2.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15).isActive = true
+        image2.leftAnchor.constraint(equalTo: image1.rightAnchor, constant: 16).isActive = true
+        image2.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        image2.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        subContainerView.addSubview(image3)
+        image3.topAnchor.constraint(equalTo: image1.bottomAnchor, constant: 10).isActive = true
+        image3.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 16).isActive = true
+        image3.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        image3.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        subContainerView.addSubview(image4)
+        image4.topAnchor.constraint(equalTo: image2.bottomAnchor, constant: 10).isActive = true
+        image4.leftAnchor.constraint(equalTo: image3.rightAnchor, constant: 16).isActive = true
+        image4.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        image4.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        subContainerView.addSubview(image5)
+        image5.topAnchor.constraint(equalTo: image3.bottomAnchor, constant: 10).isActive = true
+        image5.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 16).isActive = true
+        image5.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        image5.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        subContainerView.addSubview(image6)
+        image6.topAnchor.constraint(equalTo: image4.bottomAnchor, constant: 10).isActive = true
+        image6.leftAnchor.constraint(equalTo: image5.rightAnchor, constant: 16).isActive = true
+        image6.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        image6.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
 }
+
+
 
 extension LocationsViewController {
     func hideKeyboardWhenTappedAround() {
@@ -187,4 +221,6 @@ extension LocationsViewController {
         view.endEditing(true)
     }
 }
+
+
 
