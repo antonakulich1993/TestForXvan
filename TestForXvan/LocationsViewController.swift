@@ -42,8 +42,6 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         return view
     }()
     
-    
-    
     let subContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.93, green: 0.95, blue: 0.96, alpha: 1.0))
@@ -144,6 +142,7 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
+        
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
@@ -161,15 +160,11 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
                 guard let url = url, error == nil else {
                     return
                 }
-                
                 let urlString = url.absoluteString
                 print("Downloaded url: \(urlString)")
                 UserDefaults.standard.set(urlString, forKey: "url")
-                
             }
-            
         })
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
