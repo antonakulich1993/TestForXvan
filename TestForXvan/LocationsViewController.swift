@@ -15,7 +15,8 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
     let locationLabel: UILabel = {
         let label = UILabel()
         label.text = "ЛОКАЦИИ"
-        label.font = UIFont(name: "Oswald-Light", size: 60)
+        label.textColor = .black
+        label.font = UIFont(name: "Oswald-Light", size: 50)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -31,11 +32,11 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 33
-        view.layer.shadowColor = UIColor(red: 0.38, green: 0.42, blue: 0.41, alpha: 0.17).cgColor
-        view.layer.shadowOffset = CGSize(width: -10, height: 16)
-        view.layer.shadowRadius = 20
-        view.layer.shadowOpacity = 1
-        view.layer.shadowOffset = .zero
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        view.layer.shadowOffset = CGSize(width: 0.0, height: 10.0)
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowRadius = 0.0
+        view.layer.masksToBounds = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -178,7 +179,7 @@ private extension LocationsViewController {
         logoView.addSubview(locationLabel)
         locationLabel.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
         locationLabel.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
-        
+    
         view.addSubview(containerView)
         
         containerView.addSubview(subContainerView)
