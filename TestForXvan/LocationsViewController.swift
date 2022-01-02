@@ -227,25 +227,25 @@ private extension LocationsViewController {
         image2.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         subContainerView.addSubview(image3)
-        image3.topAnchor.constraint(equalTo: image1.bottomAnchor, constant: 10).isActive = true
+        image3.topAnchor.constraint(equalTo: image1.bottomAnchor, constant: 16).isActive = true
         image3.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 20).isActive = true
         image3.widthAnchor.constraint(equalToConstant: 150).isActive = true
         image3.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
         subContainerView.addSubview(image4)
-        image4.topAnchor.constraint(equalTo: image2.bottomAnchor, constant: 10).isActive = true
+        image4.topAnchor.constraint(equalTo: image2.bottomAnchor, constant: 16).isActive = true
         image4.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
         image4.widthAnchor.constraint(equalToConstant: 150).isActive = true
         image4.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
         subContainerView.addSubview(image5)
-        image5.topAnchor.constraint(equalTo: image3.bottomAnchor, constant: 10).isActive = true
+        image5.topAnchor.constraint(equalTo: image3.bottomAnchor, constant: 16).isActive = true
         image5.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 20).isActive = true
         image5.widthAnchor.constraint(equalToConstant: 150).isActive = true
         image5.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
         subContainerView.addSubview(image6)
-        image6.topAnchor.constraint(equalTo: image4.bottomAnchor, constant: 10).isActive = true
+        image6.topAnchor.constraint(equalTo: image4.bottomAnchor, constant: 16).isActive = true
         image6.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
         image6.widthAnchor.constraint(equalToConstant: 150).isActive = true
         image6.heightAnchor.constraint(equalToConstant: 150).isActive = true
