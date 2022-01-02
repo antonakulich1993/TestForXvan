@@ -10,6 +10,7 @@ import FirebaseStorage
 
 class LocationsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+   
     private let storage = Storage.storage().reference()
     
     let locationLabel: UILabel = {
@@ -34,7 +35,7 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         view.layer.cornerRadius = 33
         view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         view.layer.shadowOffset = CGSize(width: 0.0, height: 10.0)
-        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOpacity = 0.2
         view.layer.shadowRadius = 0.0
         view.layer.masksToBounds = false
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +46,7 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         let view = UIView()
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.93, green: 0.95, blue: 0.96, alpha: 1.0))
         view.layer.cornerRadius = 23
+
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -117,6 +119,11 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
         configureUI()
         addPictureButton.addTarget(self, action: #selector(addPictureAction), for: .touchUpInside)
+        
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
     }
     
     @objc func addPictureAction() {
