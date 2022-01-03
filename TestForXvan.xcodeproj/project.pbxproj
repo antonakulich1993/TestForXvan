@@ -14,6 +14,7 @@
 		FAD70C10277E5F2D002FCD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD70C0E277E5F2D002FCD61 /* LaunchScreen.storyboard */; };
 		FAD70C3D2781C514002FCD61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAD70C3C2781C514002FCD61 /* GoogleService-Info.plist */; };
 		FAD70C442781D3F4002FCD61 /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAD70C432781D3F4002FCD61 /* Oswald-Light.ttf */; };
+		FAD70C492782EC39002FCD61 /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70C482782EC39002FCD61 /* ImagesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FAD70C11277E5F2D002FCD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD70C3C2781C514002FCD61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAD70C432781D3F4002FCD61 /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
+		FAD70C482782EC39002FCD61 /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		FAD70C02277E5F2B002FCD61 /* TestForXvan */ = {
 			isa = PBXGroup;
 			children = (
+				FAD70C472782EC0F002FCD61 /* CollectionViewCell */,
 				FAD70C03277E5F2B002FCD61 /* AppDelegate.swift */,
 				FAD70C07277E5F2B002FCD61 /* LocationsViewController.swift */,
 				FAD70C0C277E5F2D002FCD61 /* Assets.xcassets */,
@@ -97,6 +100,14 @@
 				FAD70C432781D3F4002FCD61 /* Oswald-Light.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FAD70C472782EC0F002FCD61 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70C482782EC39002FCD61 /* ImagesCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD70C08277E5F2B002FCD61 /* LocationsViewController.swift in Sources */,
+				FAD70C492782EC39002FCD61 /* ImagesCollectionViewCell.swift in Sources */,
 				FAD70C04277E5F2B002FCD61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

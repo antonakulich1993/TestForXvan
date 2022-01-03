@@ -10,6 +10,7 @@ import FirebaseStorage
 
 class LocationsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var data: [UIImage] = [UIImage(named: "image1")!, UIImage(named: "image2")!, UIImage(named: "image3")!, UIImage(named: "image4")!, UIImage(named: "image5")!,  UIImage(named: "image6")!]
     
     private let storage = Storage.storage().reference()
     
@@ -46,7 +47,6 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         let view = UIView()
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.93, green: 0.95, blue: 0.96, alpha: 1.0))
         view.layer.cornerRadius = 23
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -76,51 +76,18 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-  
-    let image1: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "image1"))
-        image.isUserInteractionEnabled = true
+    
+    lazy var imagesCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: subContainerView.frame, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.alwaysBounceVertical = true
+        collectionView.register(ImagesCollectionViewCell.self, forCellWithReuseIdentifier: ImagesCollectionViewCell.identifier)
+        return collectionView
+    }()
         
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    let image2: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "image2"))
-        image.isUserInteractionEnabled = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    let image3: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "image3"))
-        image.isUserInteractionEnabled = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    let image4: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "image4"))
-        image.image = UIImage(named: "image4")
-        image.isUserInteractionEnabled = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    let image5: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "image5"))
-        image.isUserInteractionEnabled = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    let image6: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "image6"))
-        image.isUserInteractionEnabled = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
@@ -129,9 +96,9 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @objc func didTapImageView(_ sender: UITapGestureRecognizer) {
-
-        }
-    
+        
+    }
+    //MARK: PickerAction
     @objc func addPictureAction() {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -173,35 +140,28 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
 }
 
 private extension LocationsViewController {
-    
     func configureUI() {
-        view.addSubview(logoView)
-        
         //MARK: logoView constraints
+        view.addSubview(logoView)
         logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         logoView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         logoView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
-        logoView.heightAnchor.constraint(equalToConstant: 75).isActive = true
-        logoView.widthAnchor.constraint(equalToConstant: 465).isActive = true
-        
         
         //MARK: locationLabel constraints
         logoView.addSubview(locationLabel)
         locationLabel.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
         locationLabel.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
         
-        view.addSubview(containerView)
-        
-        containerView.addSubview(subContainerView)
-        
         //MARK: ConteinerView constraints
+        view.addSubview(containerView)
         containerView.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 30).isActive = true
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 615).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         
         //MARK: subContainerView constraints
+        containerView.addSubview(subContainerView)
         subContainerView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20).isActive = true
         subContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16).isActive = true
         subContainerView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16).isActive = true
@@ -209,7 +169,6 @@ private extension LocationsViewController {
         
         //MARK: stackView constraints
         subContainerView.addSubview(stackView)
-        
         stackView.topAnchor.constraint(equalTo: subContainerView.topAnchor, constant: 20).isActive = true
         stackView.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 16).isActive = true
         stackView.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -16).isActive = true
@@ -220,49 +179,46 @@ private extension LocationsViewController {
         locationField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 5).isActive = true
         locationField.widthAnchor.constraint(equalToConstant: 250).isActive = true
         
+        
         //MARK: addPictureButton constraints
         stackView.addSubview(addPictureButton)
         addPictureButton.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -5).isActive = true
         
-        //MARK: AllImages Constraints
-        subContainerView.addSubview(image1)
-        image1.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15).isActive = true
-        image1.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 20).isActive = true
-        image1.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        image1.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        //MARK: imagesCollectionView constraints
+        subContainerView.addSubview(imagesCollectionView)
+        imagesCollectionView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
+        imagesCollectionView.leadingAnchor.constraint(equalTo: subContainerView.leadingAnchor, constant: 16).isActive = true
+        imagesCollectionView.trailingAnchor.constraint(equalTo: subContainerView.trailingAnchor, constant: -16).isActive = true
+        imagesCollectionView.bottomAnchor.constraint(equalTo: subContainerView.bottomAnchor, constant: -10).isActive = true
         
-        subContainerView.addSubview(image2)
-        image2.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15).isActive = true
-        image2.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
-        image2.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        image2.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        
-        subContainerView.addSubview(image3)
-        image3.topAnchor.constraint(equalTo: image1.bottomAnchor, constant: 16).isActive = true
-        image3.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 20).isActive = true
-        image3.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        image3.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        
-        subContainerView.addSubview(image4)
-        image4.topAnchor.constraint(equalTo: image2.bottomAnchor, constant: 16).isActive = true
-        image4.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
-        image4.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        image4.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        
-        subContainerView.addSubview(image5)
-        image5.topAnchor.constraint(equalTo: image3.bottomAnchor, constant: 16).isActive = true
-        image5.leftAnchor.constraint(equalTo: subContainerView.leftAnchor, constant: 20).isActive = true
-        image5.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        image5.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        
-        subContainerView.addSubview(image6)
-        image6.topAnchor.constraint(equalTo: image4.bottomAnchor, constant: 16).isActive = true
-        image6.rightAnchor.constraint(equalTo: subContainerView.rightAnchor, constant: -20).isActive = true
-        image6.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        image6.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
 }
 
+extension LocationsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagesCollectionViewCell.identifier, for: indexPath)
+        guard let imagesCell = cell as? ImagesCollectionViewCell else { return cell }
+        imagesCell.imageView.image = data[indexPath.row]
+        return imagesCell
+    }
+}
+extension LocationsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: 155, height: 155)
+    }
+    
+    func collectionView(_: UICollectionView, layout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
+        return 10
+    }
+}
 
 extension LocationsViewController {
     func hideKeyboardWhenTappedAround() {
