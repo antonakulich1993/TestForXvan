@@ -9,6 +9,8 @@ import UIKit
 
 class FullScreenImageViewController: UIViewController {
     
+    var image = UIImage()
+
     var imageFullScreen: UIImageView = {
         var image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -17,6 +19,7 @@ class FullScreenImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageFullScreen.image = image
         view.addSubview(imageFullScreen)
         imageFullScreen.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         imageFullScreen.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
