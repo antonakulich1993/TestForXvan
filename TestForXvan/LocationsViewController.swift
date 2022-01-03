@@ -218,6 +218,14 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
         return 10
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let imageFullScreenVC = FullScreenImageViewController()
+        DispatchQueue.main.async {
+            imageFullScreenVC.imageFullScreen.image = self.data[indexPath.row]
+            self.navigationController?.pushViewController(imageFullScreenVC, animated: true)
+        }
+    }
 }
 
 extension LocationsViewController {
