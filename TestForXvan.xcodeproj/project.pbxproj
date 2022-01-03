@@ -84,9 +84,10 @@
 		FAD70C02277E5F2B002FCD61 /* TestForXvan */ = {
 			isa = PBXGroup;
 			children = (
+				FAD70C07277E5F2B002FCD61 /* LocationsViewController.swift */,
+				FAD70C4D2783420C002FCD61 /* FullScreenImageViewController.swift */,
 				FAD70C472782EC0F002FCD61 /* CollectionViewCell */,
 				FAD70C03277E5F2B002FCD61 /* AppDelegate.swift */,
-				FAD70C07277E5F2B002FCD61 /* LocationsViewController.swift */,
 				FAD70C0C277E5F2D002FCD61 /* Assets.xcassets */,
 				FAD70C0E277E5F2D002FCD61 /* LaunchScreen.storyboard */,
 				FAD70C3C2781C514002FCD61 /* GoogleService-Info.plist */,
@@ -108,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				FAD70C482782EC39002FCD61 /* ImagesCollectionViewCell.swift */,
-				FAD70C4D2783420C002FCD61 /* FullScreenImageViewController.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
