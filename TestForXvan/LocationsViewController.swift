@@ -93,6 +93,26 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
         configureUI()
         addPictureButton.addTarget(self, action: #selector(addPictureAction), for: .touchUpInside)
+        
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String else {
+            return
+        }
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            let image = UIImage(data: data)
+            guard let image = image else {
+                return
+            }
+            self.data.append(image)
+            DispatchQueue.main.async {
+                self.imagesCollectionView.reloadData()
+            }
+        }.resume()
     }
     
     @objc func didTapImageView(_ sender: UITapGestureRecognizer) {
@@ -106,7 +126,7 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         picker.allowsEditing = true
         present(picker, animated: true)
     }
-    
+    //MARK: Firebase
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         
@@ -116,7 +136,6 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         guard let imageData = image.pngData() else {
             return
         }
-        
         storage.child("images/file.png").putData(imageData, metadata: nil, completion: { metadata, error in
             guard error == nil else {
                 print("Failed to upload")
@@ -211,8 +230,7 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 155, height: 155)
     }
     
