@@ -223,8 +223,8 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
     //MARK: Show FullScreenImage
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let imageFullScreenVC = FullScreenImageViewController()
-            imageFullScreenVC.imageFullScreen.image = self.data[indexPath.row]
-            self.navigationController?.pushViewController(imageFullScreenVC, animated: true)
+        imageFullScreenVC.imageFullScreen.image = data[indexPath.row]
+        self.navigationController?.present(imageFullScreenVC, animated: true, completion: nil)
     }
 }
 
