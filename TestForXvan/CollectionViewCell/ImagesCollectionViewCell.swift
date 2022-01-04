@@ -15,15 +15,15 @@ class ImagesCollectionViewCell: UICollectionViewCell {
     
     var imageView: UIImageView = {
         var image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 22
+        image.contentMode = .scaleToFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        contentView.layer.cornerRadius = 22
+        contentView.layer.masksToBounds = true
         contentView.addSubview(imageView)
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         imageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true

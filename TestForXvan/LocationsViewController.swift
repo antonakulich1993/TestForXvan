@@ -115,9 +115,6 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         }.resume()
     }
     
-    @objc func didTapImageView(_ sender: UITapGestureRecognizer) {
-        
-    }
     //MARK: PickerAction
     @objc func addPictureAction() {
         let picker = UIImagePickerController()
