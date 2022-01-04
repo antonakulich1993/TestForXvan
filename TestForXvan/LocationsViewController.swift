@@ -87,32 +87,13 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
         collectionView.register(ImagesCollectionViewCell.self, forCellWithReuseIdentifier: ImagesCollectionViewCell.identifier)
         return collectionView
     }()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(cgColor: CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0))
         configureUI()
         addPictureButton.addTarget(self, action: #selector(addPictureAction), for: .touchUpInside)
         
-        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String else {
-            return
-        }
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            let image = UIImage(data: data)
-            guard let image = image else {
-                return
-            }
-            self.data.append(image)
-            DispatchQueue.main.async {
-                self.imagesCollectionView.reloadData()
-            }
-        }.resume()
     }
     
     //MARK: PickerAction
@@ -125,21 +106,29 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
     }
     //MARK: Firebase
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        data.append(image)
+        DispatchQueue.main.async {
+            self.imagesCollectionView.reloadData()
+        }
         
+        picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
         guard let imageData = image.pngData() else {
             return
         }
+        let timestamp = Date.timeIntervalBetween1970AndReferenceDate
+        
         storage.child("images/file.png").putData(imageData, metadata: nil, completion: { metadata, error in
             guard error == nil else {
                 print("Failed to upload")
                 return
             }
-            
-            self.storage.child("images/file.png").downloadURL { url, error in
+            self.storage.child("images/file_\(timestamp).png").downloadURL { url, error in
                 guard let url = url, error == nil else {
                     return
                 }
@@ -228,8 +217,8 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 155, height: 155)
-    }
+            return CGSize(width: 155, height: 155)
+        }
     
     func collectionView(_: UICollectionView, layout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
         return 10
