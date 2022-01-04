@@ -9,8 +9,6 @@ import UIKit
 
 class FullScreenImageViewController: UIViewController {
     
-    var image = UIImage()
-
     var imageFullScreen: UIImageView = {
         var image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false

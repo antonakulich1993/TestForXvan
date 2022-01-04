@@ -11,8 +11,6 @@ class ImagesCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ImagesCollectionViewCell"
     
-    var data:[UIImage] = []
-    
     var imageView: UIImageView = {
         var image = UIImageView()
         image.contentMode = .scaleToFill
