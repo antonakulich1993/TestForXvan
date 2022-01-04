@@ -9,12 +9,14 @@ import UIKit
 
 class FullScreenImageViewController: UIViewController {
     
+    var image = UIImage()
+
     var imageFullScreen: UIImageView = {
         var image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageFullScreen.image = image
