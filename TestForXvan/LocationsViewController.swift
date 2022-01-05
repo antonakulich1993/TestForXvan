@@ -10,6 +10,8 @@ import FirebaseStorage
 
 class LocationsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    private let sectionInsets = UIEdgeInsets( top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    
     var data: [UIImage] = [UIImage(named: "image1")!, UIImage(named: "image2")!, UIImage(named: "image3")!, UIImage(named: "image4")!, UIImage(named: "image5")!,  UIImage(named: "image6")!]
     
     private let storage = Storage.storage().reference()
@@ -217,12 +219,12 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 155, height: 155)
+            return CGSize(width: self.view.frame.width / 2.5, height: self.view.frame.height / 5)
         }
     
-    func collectionView(_: UICollectionView, layout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
-        return 10
-    }
+//    func collectionView(_: UICollectionView, layout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
+//        return 10
+//    }
     
     //MARK: Show FullScreenImage
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
