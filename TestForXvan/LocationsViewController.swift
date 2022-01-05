@@ -112,9 +112,7 @@ class LocationsViewController: UIViewController, UIImagePickerControllerDelegate
             return
         }
         data.append(image)
-        DispatchQueue.main.async {
-            self.imagesCollectionView.reloadData()
-        }
+        self.imagesCollectionView.reloadData()
         
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
