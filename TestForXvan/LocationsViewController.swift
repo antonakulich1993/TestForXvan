@@ -219,7 +219,7 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: self.view.frame.width / 2.5, height: self.view.frame.height / 5)
+            return CGSize(width: self.view.frame.width / 2.5, height: 155)
         }
     
     //MARK: Show FullScreenImage
