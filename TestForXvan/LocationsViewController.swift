@@ -222,10 +222,6 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: self.view.frame.width / 2.5, height: self.view.frame.height / 5)
         }
     
-//    func collectionView(_: UICollectionView, layout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
-//        return 10
-//    }
-    
     //MARK: Show FullScreenImage
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let imageFullScreenVC = FullScreenImageViewController()
